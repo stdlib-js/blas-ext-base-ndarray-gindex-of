@@ -48,7 +48,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import gindexOf from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-ndarray-gindex-of@deno/mod.js';
+import gindexOf from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-ndarray-gindex-of@v0.1.0-deno/mod.js';
 ```
 
 #### gindexOf( arrays )
@@ -129,7 +129,7 @@ import ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-ctor@den
 import scalar2ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-from-scalar@deno/mod.js';
 import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@deno/mod.js';
 import ndarraylike2scalar from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-ndarraylike2scalar@deno/mod.js';
-import gindexOf from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-ndarray-gindex-of@deno/mod.js';
+import gindexOf from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-ndarray-gindex-of@v0.1.0-deno/mod.js';
 
 var xbuf = discreteUniform( 10, -100, 100, {
     'dtype': 'generic'
