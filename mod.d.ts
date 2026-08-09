@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,19 +16,11 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var numelDimension = require( '@stdlib/ndarray-base-numel-dimension' );
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var strided = require( '@stdlib/blas-ext-base-gindex-of' ).ndarray;
-var ndarraylike2scalar = require( '@stdlib/ndarray-base-ndarraylike2scalar' );
-
-
-// MAIN //
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
 * Returns the first index of a search element in a one-dimensional ndarray.
@@ -41,8 +33,8 @@ var ndarraylike2scalar = require( '@stdlib/ndarray-base-ndarraylike2scalar' );
 *     -   a zero-dimensional ndarray containing the search element.
 *     -   a zero-dimensional ndarray containing the index from which to begin searching.
 *
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing ndarrays
-* @returns {integer} index
+* @param arrays - array-like object containing ndarrays
+* @returns index
 *
 * @example
 * var vector = require( '@stdlib/ndarray-vector-ctor' );
@@ -61,40 +53,9 @@ var ndarraylike2scalar = require( '@stdlib/ndarray-base-ndarraylike2scalar' );
 * var v = gindexOf( [ x, searchElement, fromIndex ] );
 * // returns 3
 */
-function gindexOf( arrays ) {
-	var searchElement;
-	var fromIndex;
-	var stride;
-	var offset;
-	var idx;
-	var N;
-	var x;
-
-	x = arrays[ 0 ];
-	N = numelDimension( x, 0 );
-	searchElement = ndarraylike2scalar( arrays[ 1 ] );
-	fromIndex = ndarraylike2scalar( arrays[ 2 ] );
-
-	if ( fromIndex < 0 ) {
-		fromIndex += N;
-		if ( fromIndex < 0 ) {
-			fromIndex = 0;
-		}
-	} else if ( fromIndex >= N ) {
-		return -1;
-	}
-	N -= fromIndex;
-	stride = getStride( x, 0 );
-	offset = getOffset( x ) + ( stride*fromIndex );
-
-	idx = strided( N, searchElement, getData( x ), stride, offset );
-	if ( idx >= 0 ) {
-		idx += fromIndex;
-	}
-	return idx;
-}
+declare function gindexOf<T = unknown>( arrays: [ typedndarray<T>, typedndarray<T>, typedndarray<number> ] ): number;
 
 
 // EXPORTS //
 
-module.exports = gindexOf;
+export = gindexOf;
